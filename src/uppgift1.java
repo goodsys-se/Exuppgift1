@@ -30,15 +30,15 @@ public class uppgift1 { // Början av klassen main
                 System.out.printf("Felaktig betalning %n");
         }
 
-        restvarde = betalning - kopsumma; //Beräkning av restvärde som används inom for-loopen nedan
+        restvarde = betalning - kopsumma; //Beräkning av växel kvar (restvärde) som används inom for-loopen nedan
 
-        if (restvarde >0){
+        if (restvarde >0){                                              // Vi kontrollerar här om det blev någon växel alls
             System.out.printf("%nKunden får tillbaka:%n");
             for (int valor : allaValorer) {
-                tempvarde = restvarde / valor;
-                if (tempvarde >0){
-                    restvarde = restvarde - (tempvarde * valor);
-                    System.out.printf("%dst  %dkr %n",tempvarde,valor);
+                tempvarde = restvarde / valor;                          // Vi beräknar här med en division (heltalsdivision pga. två heltal)
+                if (tempvarde >0){                                      // Vi kontrollerar här om det blev någon av aktuell valör
+                    restvarde = restvarde - (tempvarde * valor);        // Beräkning av den växel som finns kvar efter att antal av valör dragits bort
+                    System.out.printf("%dst  %dkr %n",tempvarde,valor); // Vi skriver ut hur många av aktuell valör
                 }
             }
         }
